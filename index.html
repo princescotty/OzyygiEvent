@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ozzygi Event - Premium Event Planning Services</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Modern Color Scheme and Variables */
+    :root {
+      --primary: #E50914; /* Netflix red as accent */
+      --primary-light: #FF5A5F;
+      --secondary: #2A3E4F;
+      --dark: #1A1A2E;
+      --light: #F8F9FA;
+      --text: #333333;
+      --text-light: #6C757D;
+      --background: #FFFFFF;
+      --overlay: rgba(109, 109, 109, 0.85);
+      --border-radius: 8px;
+      --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    /* Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      background-color: var(--background);
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .overlay {
+      background-color: var(--overlay);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    /* Modern Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.98);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 5%;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(5px);
+      transition: var(--transition);
+    }
+
+    nav.scrolled {
+      padding: 10px 5%;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--secondary);
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: var(--transition);
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .logo img {
+      max-width: 80px;
+      transition: var(--transition);
+    }
+
+    .logo:hover img {
+      transform: scale(1.05);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--secondary);
+      cursor: pointer;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 220px 20px 120px;
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                  url('shot101002.png') no-repeat center center/cover;
+      color: white;
+      margin-top: 0;
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      max-width: 700px;
+      margin: 0 auto 40px;
+      opacity: 0.9;
+    }
+
+    /* Button Styles */
+    .btn {
+      display: inline-block;
+      padding: 14px 32px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 50px;
+      transition: var(--transition);
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 4px 15px rgba(229, 9, 20, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: #C00812;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(229, 9, 20, 0.4);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+      margin-left: 15px;
+    }
+
+    .btn-outline:hover {
+      background: white;
+      color: var(--primary);
+    }
+
+    /* Section Styles */
+    .section {
+      padding: 100px 20px;
+      position: relative;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      color: var(--secondary);
+      text-align: center;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+
+    .section-subtitle {
+      color: var(--text-light);
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 60px;
+      font-size: 1.1rem;
+    }
+
+    /* About Section */
+    .about-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about-image {
+      position: relative;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.8s ease;
+    }
+
+    .about-image:hover img {
+      transform: scale(1.05);
+    }
+
+    .about-content h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: var(--secondary);
+    }
+
+    .about-content p {
+      margin-bottom: 20px;
+      color: var(--text);
+      font-size: 1.05rem;
+    }
+
+    .ceo-info {
+      display: flex;
+      align-items: center;
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #eee;
+    }
+
+    .ceo-signature {
+      width: 120px;
+      margin-right: 50px;
+    }
+
+    .ceo-details h4 {
+      font-size: 1.2rem;
+      margin: 0 0 5px 0;
+      color: var(--background);
+    }
+
+    .ceo-details p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--light);
+    }
+
+    /* Portfolio Gallery */
+    .portfolio {
+      background: #f9f9f9;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 25px;
+      margin-top: 50px;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+      padding: 20px;
+      color: white;
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    /* Testimonials */
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 50px auto 0;
+    }
+
+    .testimonial {
+      background: white;
+      padding: 30px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      position: relative;
+    }
+
+    .testimonial::before {
+      content: '"';
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 5rem;
+      color: rgba(229, 9, 20, 0.1);
+      font-family: serif;
+      line-height: 1;
+    }
+
+    .testimonial-content {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 20px;
+      font-style: italic;
+      color: var(--text);
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+    }
+
+    .testimonial-author img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 15px;
+    }
+
+    .author-info h4 {
+      margin: 0;
+      color: var(--secondary);
+    }
+
+    .author-info p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+
+    /* Contact Section */
+    .contact {
+      background: var(--secondary);
+      color: white;
+    }
+
+    .contact .section-title {
+      color: white;
+    }
+
+    .contact .section-subtitle {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .contact-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 25px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: var(--border-radius);
+      transition: var(--transition);
+      backdrop-filter: blur(5px);
+    }
+
+    .contact-card:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateY(-5px);
+    }
+
+    .contact-icon {
+      font-size: 1.5rem;
+      color: var(--primary);
+      min-width: 40px;
+      text-align: center;
+      padding-top: 5px;
+    }
+
+    .contact-details h3 {
+      margin-bottom: 10px;
+      color: white;
+    }
+
+    .contact-details p, 
+    .contact-details a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .contact-details a:hover {
+      color: white;
+      text-decoration: underline;
+    }
+
+    .contact-form {
+      background: white;
+      padding: 40px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: var(--secondary);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: var(--border-radius);
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+
+    .form-control:focus {
+      border-color: var(--primary);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.1);
+    }
+
+    textarea.form-control {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    /* Login Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: white;
+      width: 100%;
+      max-width: 500px;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+      animation: modalFadeIn 0.3s ease;
+    }
+
+    @keyframes modalFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .modal-header {
+      padding: 20px;
+      background: var(--primary);
+      color: white;
+      position: relative;
+    }
+
+    .modal-header h3 {
+      margin: 0;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .close-modal:hover {
+      transform: rotate(90deg);
+    }
+
+    .modal-body {
+      padding: 30px;
+    }
+
+    .form-footer {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .form-footer a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .form-footer a:hover {
+      text-decoration: underline;
+    }
+
+    .social-login {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .social-login p {
+      margin-bottom: 20px;
+      position: relative;
+      color: var(--text-light);
+    }
+
+    .social-login p::before,
+    .social-login p::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: 30%;
+      height: 1px;
+      background: #ddd;
+    }
+
+    .social-login p::before {
+      left: 0;
+    }
+
+    .social-login p::after {
+      right: 0;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .social-icon {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      transition: var(--transition);
+    }
+
+    .social-icon:hover {
+      transform: translateY(-5px);
+    }
+
+    .facebook {
+      background: #3B5998;
+    }
+
+    .twitter {
+      background: #1DA1F2;
+    }
+
+    .instagram {
+      background: #E1306C;
+    }
+
+    .linkedin {
+      background: #0077B5;
+    }
+
+    /* Floating WhatsApp Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      background: #25D366;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+      z-index: 100;
+      transition: var(--transition);
+      animation: pulse 2s infinite;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+      }
+      70% {
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+      }
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: white;
+      padding: 60px 20px 30px;
+      text-align: center;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      text-align: left;
+    }
+
+    .footer-column h3 {
+      color: white;
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+    }
+
+    .footer-column p {
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 15px;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: white;
+      padding-left: 5px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      color: white;
+      background: rgba(255, 255, 255, 0.1);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .social-links a:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    .copyright {
+      margin-top: 50px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.9rem;
+    }
+
+    /* Lightbox for Gallery */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 3000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lightbox-content {
+      max-width: 90%;
+      max-height: 90%;
+      position: relative;
+    }
+
+    .lightbox-content img {
+      max-width: 100%;
+      max-height: 90vh;
+      display: block;
+      border-radius: var(--border-radius);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: -40px;
+      right: 0;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 20px;
+      transform: translateY(-50%);
+    }
+
+    .lightbox-nav button {
+      background: rgba(255, 255, 255, 0.3);
+      color: white;
+      border: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .lightbox-nav button:hover {
+      background: var(--primary);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .about-section,
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+
+      .about-image {
+        order: -1;
+      }
+
+      .contact-form {
+        margin-top: 40px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero {
+        padding: 180px 20px 80px;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+      }
+
+      .btn {
+        padding: 12px 25px;
+      }
+
+      .section {
+        padding: 70px 20px;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: white;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition);
+      }
+
+      .nav-links.active {
+        left: 0;
+      }
+
+      nav a {
+        margin: 15px 0;
+        font-size: 1.2rem;
+      }
+
+      .testimonials {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 576px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .btn-group {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .btn-outline {
+        margin-left: 0;
+      }
+
+      .modal-content {
+        margin: 0 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay"></div>
+  
+  <!-- Navigation -->
+  <nav id="mainNav">
+    <div class="logo">
+      <img src="photos/logoOZ.png" alt="Ozzygi Logo">
+    </div>
+    <button class="mobile-menu-btn" id="mobileMenuBtn">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#contact">Contact</a>
+      <a href="#" id="login-btn">Login</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <h1>Ozzygi Event</h1>
+    <p>Your vision, our celebration. We craft unforgettable experiences with elegance, precision, and cultural pride.</p>
+    <div class="btn-group">
+      <a href="https://calendar.google.com/calendar/u/0/r" target="_blank" class="btn btn-primary">Book a Consultation</a>
+      <a href="#portfolio" class="btn btn-outline">View Our Work</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section" id="about">
+    <div class="about-section">
+      <div class="about-image">
+        <img src="photos/Ozi_CEO.png" alt="CEO Photo">
+      </div>
+      
+      <div class="about-content">
+        <h2 class="section-title">About Our Company</h2>
+        <p>Ozzygi Events is a registered event company that offers full service event planning, design and management services, catering to both corporate and social events.</p>
+        <p>Our highly professional team of vendors offers the best quality products and services to all events to ensure maximum comfort and great value for your money.</p>
+        <p>It is our goal to provide the best customer care experience that suits your taste, bridging the gap between vision and reality while maintaining the highest standards in everything we do.</p>
+        
+        <div class="ceo-info">
+          <div class="ceo-signature">
+            <img src="https://i.imgur.com/JQ9pDdA.png" alt="CEO Signature">
+          </div>
+          <div class="ceo-details">
+            <h4>Ozioma Izuchukwu</h4>
+            <p>CEO & Founder</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section class="section portfolio" id="portfolio">
+    <h2 class="section-title">Our Work</h2>
+    <p class="section-subtitle">Browse through our portfolio of stunning events we've created for our clients</p>
+    
+    <div class="gallery">
+      <div class="gallery-item" data-index="0">
+        <img src="photos/firstevent.jpg" alt="Event 1">
+        <div class="gallery-overlay">
+          <h3>Corporate Gala</h3>
+          <p>Annual awards night</p>
+        </div>
+      </div>
+      <div class="gallery-item" data-index="1">
+        <img src="photos/coporate.jpg" alt="Event 2">
+        <div class="gallery-overlay">
+          <h3>Product Launch</h3>
+          <p>Tech company unveiling</p>
+        </div>
+      </div>
+      <div class="gallery-item" data-index="2">
+        <img src="photos/mimicasino.jpg" alt="Event 3">
+        <div class="gallery-overlay">
+          <h3>Casino Night</h3>
+          <p>Charity fundraiser</p>
+        </div>
+      </div>
+      <div class="gallery-item" data-index="3">
+        <img src="photos/345d84a6-b1cb-494b-8ebd-9a3d88dfd2d0.jpeg" alt="Event 4">
+        <div class="gallery-overlay">
+          <h3>Wedding Reception</h3>
+          <p>Traditional ceremony</p>
+        </div>
+      </div>
+      <div class="gallery-item" data-index="4">
+        <img src="photos/eventbckshot0303.jpg" alt="Event 5">
+        <div class="gallery-overlay">
+          <h3>Birthday Celebration</h3>
+          <p>50th anniversary</p>
+        </div>
+      </div>
+      <div class="gallery-item" data-index="5">
+        <img src="photos/urch202402.jpeg" alt="Event 6">
+        <div class="gallery-overlay">
+          <h3>Conference Setup</h3>
+          <p>Industry summit</p>
+        </div>
+      </div>
+      <div class="gallery-item" data-index="5">
+        <img src="photos/2dade233-c5bf-4342-be73-f5c3d25402d1.jpeg" alt="Event 6">
+        <div class="gallery-overlay">
+          <h3>Conference Setup</h3>
+          <p>Industry summit</p>
+        </div>
+      </div>
+      <div class="gallery-item" data-index="5">
+        <img src="photos/27ab1421-5c54-4964-9ab5-8e1c5786c5f5.jpeg" alt="Event 6">
+        <div class="gallery-overlay">
+          <h3>Conference Setup</h3>
+          <p>Industry summit</p>
+        </div>
+      </div>
+      <div class="gallery-item" data-index="5">
+        <img src="photos/urch&mimi202401.jpeg" alt="Event 6">
+        <div class="gallery-overlay">
+          <h3>Conference Setup</h3>
+          <p>Industry summit</p>
+        </div>
+      </div>
+      <div class="gallery-item" data-index="5">
+        <img src="photos/df04dae9-bfeb-437c-90d9-3c68c3a907ab.jpeg" alt="Event 6">
+        <div class="gallery-overlay">
+          <h3>Conference Setup</h3>
+          <p>Industry summit</p>
+        </div>
+      </div>
+      <div class="gallery-item" data-index="5">
+        <img src="photos/79889e60-74ae-46cc-a14b-8abf245eb4b8.jpeg" alt="Event 6">
+        <div class="gallery-overlay">
+          <h3>Conference Setup</h3>
+          <p>Industry summit</p>
+        </div>
+      </div>
+      <div class="gallery-item" data-index="5">
+        <img src="photos/08c49161-4f42-43f2-9811-96b7b5b970ef.jpeg" alt="Event 6">
+        <div class="gallery-overlay">
+          <h3>Conference Setup</h3>
+          <p>Industry summit</p>
+        </div>
+      </div>
+      <div class="gallery-item" data-index="5">
+        <img src="photos/4f0b6c42-8fe4-4145-8387-94320f54108c.jpeg" alt="Event 6">
+        <div class="gallery-overlay">
+          <h3>Conference Setup</h3>
+          <p>Industry summit</p>
+        </div>
+      </div>
+      <div class="gallery-item" data-index="5">
+        <img src="photos/urch202403.jpeg" alt="Event 6">
+        <div class="gallery-overlay">
+          <h3>Conference Setup</h3>
+          <p>Industry summit</p>
+        </div>
+      </div>
+      <div class="gallery-item" data-index="5">
+        <img src="photos/d2097b87-dfe0-4c48-9077-75ecadb9b08e.jpeg" alt="Event 6">
+        <div class="gallery-overlay">
+          <h3>Conference Setup</h3>
+          <p>Industry summit</p>
+        </div>
+      </div>
+      <div class="gallery-item" data-index="5">
+        <img src="photos/2a5f239b-14dd-46c4-9470-a39eeaa04763.jpeg" alt="Event 6">
+        <div class="gallery-overlay">
+          <h3>Conference Setup</h3>
+          <p>Industry summit</p>
+        </div>
+      </div>
+      <div class="gallery-item" data-index="5">
+        <img src="photos/ec083392-18b2-4728-bfeb-c36b1fee4692.jpeg" alt="Event 6">
+        <div class="gallery-overlay">
+          <h3>Conference Setup</h3>
+          <p>Industry summit</p>
+        </div>
+      </div>
+      <div class="gallery-item" data-index="5">
+        <img src="photos/urchbride.jpeg" alt="Event 6">
+        <div class="gallery-overlay">
+          <h3>Conference Setup</h3>
+          <p>Industry summit</p>
+        </div>
+      </div>
+      <div class="gallery-item" data-index="5">
+        <img src="photos/urch&mimiport.jpeg" alt="Event 6">
+        <div class="gallery-overlay">
+          <h3>Conference Setup</h3>
+          <p>Industry summit</p>
+        </div>
+      </div>
+      <div class="gallery-item" data-index="5">
+        <img src="photos/7a7aa213-f07a-4c46-bfa0-bfa3644feb82.jpeg" alt="Event 6">
+        <div class="gallery-overlay">
+          <h3>Conference Setup</h3>
+          <p>Industry summit</p>
+        </div>
+      </div>
+
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-content">
+      <span class="lightbox-close">&times;</span>
+      <img id="lightbox-img" src="" alt="">
+      <div class="lightbox-nav">
+        <button id="prev-btn"><i class="fas fa-chevron-left"></i></button>
+        <button id="next-btn"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Testimonials Section -->
+  <section class="section" id="testimonials">
+    <h2 class="section-title">Client Testimonials</h2>
+    <p class="section-subtitle">Hear what our clients say about our services</p>
+    
+    <div class="testimonials">
+      <div class="testimonial">
+        <div class="testimonial-content">
+          Ozzygi turned my wedding into a fairytale. Their attention to detail and ability to deliver what I envisioned is unmatched.
+        </div>
+        <div class="testimonial-author">
+          <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Agu Uche">
+          <div class="author-info">
+            <h4>Agu Uche</h4>
+            <p>Wedding Client</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="testimonial">
+        <div class="testimonial-content">
+          Professional, timely, and stylish. They made our corporate event look like a global conference.
+        </div>
+        <div class="testimonial-author">
+          <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Mimi C.">
+          <div class="author-info">
+            <h4>Mimi C.</h4>
+            <p>Corporate Client</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="testimonial">
+        <div class="testimonial-content">
+          Truly remarkable experience. They understand luxury and execution better than anyone I've worked with.
+        </div>
+        <div class="testimonial-author">
+          <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Fatima B.">
+          <div class="author-info">
+            <h4>Fatima B.</h4>
+            <p>Private Event</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section contact" id="contact">
+    <h2 class="section-title">Contact Us</h2>
+    <p class="section-subtitle">Get in touch to start planning your perfect event</p>
+    
+    <div class="contact-container">
+      <div class="contact-info">
+        <div class="contact-card">
+          <div class="contact-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <div class="contact-details">
+            <h3>Our Location</h3>
+            <p>148 Nike Lake Road, Enugu, Nigeria</p>
+          </div>
+        </div>
+        
+        <div class="contact-card">
+          <div class="contact-icon">
+            <i class="fas fa-phone-alt"></i>
+          </div>
+          <div class="contact-details">
+            <h3>Phone</h3>
+            <p><a href="tel:+2348000000000">+234 816 828 9377</a></p>
+            <p><a href="tel:+2348000000001">+234 706 265 2603</a></p>
+          </div>
+        </div>
+        
+        <div class="contact-card">
+          <div class="contact-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="contact-details">
+            <h3>Email</h3>
+            <p><a href="mailto:ozzygievent@gmail.com">ozzygievent@gmail.com</a></p>
+            <p><a href="mailto:info@ozzygievent.com">info@ozzygievent.com</a></p>
+          </div>
+        </div>
+        
+        <div class="contact-card">
+          <div class="contact-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="contact-details">
+            <h3>Working Hours</h3>
+            <p>Monday - Friday: 9am - 6pm</p>
+            <p>Saturday: 10am - 4pm</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="contact-form">
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" class="form-control" placeholder="Enter your name" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" class="form-control" placeholder="Enter your phone number">
+          </div>
+          
+          <div class="form-group">
+            <label for="event-type">Event Type</label>
+            <select id="event-type" class="form-control">
+              <option value="">Select event type</option>
+              <option value="wedding">Wedding</option>
+              <option value="corporate">Corporate</option>
+              <option value="birthday">Birthday</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea id="message" class="form-control" placeholder="Tell us about your event" required></textarea>
+          </div>
+          
+          <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>Ozzygi Event</h3>
+        <p>Creating unforgettable experiences with elegance, precision, and cultural pride since 2010.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Services</h3>
+        <ul class="footer-links">
+          <li> Event Planning & Design</li>
+          <li> Event Coordination</li>
+          <li> Event Consultations</li>
+        </ul>
+      </div>
+     </div>
+</footer>
+</body>
+</html>
